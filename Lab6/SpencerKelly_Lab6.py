@@ -94,10 +94,13 @@ def movie_pendulum(t_arr, theta_array):
         time_txt = 'Time (s) = ' + str(t_arr[i])
         plt.text(0,0, theta_txt)
         plt.text(0,-1, time_txt)
+        #Add a title specifying the pendulum's simulation parameters
         axes.set_title('Pendulum for Starting angle = 30 degrees, driving force frequency = 2 rad/s, Q = 20, Force Amplitude = 0.2', fontsize=7)
         camera.snap()
+    #assing the animation to a variable
     animation = camera.animate()
-    animation.save('myvideo.gif', writer='PillowWriter', fps=10)
+    #save the animation
+    animation.save('SpencerKelly_Lab6_pendulum.gif', writer='PillowWriter', fps=10)
 
 
 

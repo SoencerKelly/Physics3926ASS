@@ -5,10 +5,10 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 #part 1
-def motion_solver(iSpeed, launchAngle, timeStep, method = 'Midpoint', airRes = True, part3 = False):
-    '''Solves equation of motion for a baseball with initial speed and angle using specified method, and removes air resistance if requested. Note: Midpoint method is assumed if no method argument is given (due to highest accuracy).'''
+def motion_solver(iSpeed, launchAngle, timeStep, method = 'Midpoint', airRes = True, part3 = False, forGraph = False):
+    '''Solves equation of motion for a baseball with initial speed and angle using specified method, and removes air resistance if requested. Note: Midpoint method is assumed if no method argument is given (due to highest accuracy).
+    Outputs a range in the x direction if not otherwise specified. Is also capable of outputting an array of x and y positions for graphing purposes, and the y value at the length of a baseball field (400ft)'''
     #List all constants used in the calculation:
     #according to the textbook, we can approximate the drag coefficient as 0.35
     C_d = 0.35
@@ -57,7 +57,7 @@ def motion_solver(iSpeed, launchAngle, timeStep, method = 'Midpoint', airRes = T
             nextPos = currPos + currVel*timeStep - 1/2*accel*(timeStep**2)
             nextVel = currVel + accel * timeStep
 
-        #if the function is being used for part 3, return the height value of the ball at the first x value after 400m
+        #if the function is being used for part 3, return the height value of the ball at the first x value after 400ft
         if part3 and currPos[0] >= ft_to_m(400):
             return currPos[1]
 
@@ -67,8 +67,12 @@ def motion_solver(iSpeed, launchAngle, timeStep, method = 'Midpoint', airRes = T
         #append the current position to the list of positions
         xPos = np.append(xPos, currPos[0])
         yPos = np.append(yPos, currPos[1])
-    #return the two position arrays in the case the function is not being used for part 3
-    if not part3:
+
+    #return the range of the ball in the x direction
+    if not (part3 or forGraph):
+        return xPos[-1]
+    # return the two position arrays in the case the function is being used for graphing
+    elif forGraph:
         return xPos, yPos
     #if the function is being used for part 3 and 400m was never reached by the ball before it hit the ground, return a value of -1 as the y pos
     elif part3: return -1
@@ -96,11 +100,13 @@ def ABvsHRRats(speed, spd_std, angle, ang_std, length, field_dist, part3 = False
     #iterate through the two arrays, generating a solution of motion for all initial speeds and their corresponding launch angles
     for iSpeed, iAngle, in zip(speedArray, angleArray):
         ABCount += 1
+        #in the case that its not being
         if not part3:
-            xPos, yPos = motion_solver(iSpeed, iAngle, 0.1, part3 = part3)
+            range = motion_solver(iSpeed, iAngle, 0.1, part3 = part3)
             #if the final x position is greater than 400m, add one to the home run counter
-            if xPos[-1] >= ft_to_m(field_dist):
+            if range >= ft_to_m(field_dist):
                 HRCount += 1
+        #if this function is being used for part 3, calculate the AB/HR ratio for the given fenceheight
         elif part3:
             yPos = motion_solver(iSpeed, iAngle, 0.1, part3 = part3)
             if yPos >= fenceHeight:
@@ -122,26 +128,58 @@ def optimal_fence_height():
     #iterate through each fenceheight
     for i in heightsArray:
         #Calculate the ABvsHR value for the given fenceheight by implementing the part3 argument for the ABvsHR function
+        #only use 300 bats this time, as the computational demand for 3000 in this for loop is too high
         ABvsHR = ABvsHRRats(100, 15, 45, 10, 300, 400, part3=True, fenceHeight=i)
         #append the ratio to the array
         HRArray = np.append(HRArray, ABvsHR)
 
-    return heightsArray, HRArray
+    #create a curve of best fit using numpy polyfit function
+    #start by getting polynomial constants
+    a,b,c = np.polyfit(heightsArray, HRArray, 2)
+    curve_array = a*heightsArray**2 + b*heightsArray + c
+
+
+    return heightsArray, HRArray, curve_array
 
 def main():
-    x, y = motion_solver(50, 45, 0.1, 'Euler')
-    x2, y2 = motion_solver(50, 45, 0.1, 'Euler-Cromer')
-    x3, y3 = motion_solver(50, 45, 0.1, 'Midpoint')
-    print(x,x[-1], y)
+    #testing out the motion solver function and its methods
+    x, y = motion_solver(50, 45, 0.1, 'Euler', forGraph=True)
+    x2, y2 = motion_solver(50, 45, 0.1, 'Euler-Cromer', forGraph=True)
+    x3, y3 = motion_solver(50, 45, 0.1, 'Midpoint', forGraph=True)
+    #plot the 3 sets of points to compare
     plt.plot(x, y, '--', x2, y2, '+', x3, y3, '-')
     plt.show()
-    x,y = motion_solver(15, 45, 0.1, 'Euler')
-    x1,y1 = motion_solver(15, 45, 0.1, airRes=False)
+    #reproducing figure 2.2 as a test also
+    x,y = motion_solver(15, 45, 0.1, 'Euler', forGraph=True)
+    x1,y1 = motion_solver(15, 45, 0.1, airRes=False, forGraph=True)
     plt.plot(x, y, '--', x1, y1, '+')
     plt.show()
+    #reproduce figure 2.3 as instructed, and save the image
+    x, y = motion_solver(50, 45, 0.1, 'Euler', forGraph=True)
+    x1, y1 = motion_solver(50, 45, 0.1, airRes=False, forGraph=True)
+    plt.plot(x, y, '+', label = 'Euler Method')
+    plt.plot(x1, y1, '-', label = 'Theory (No air)')
+    plt.title('Projectile motion')
+    plt.legend(loc = 'upper left')
+    plt.xlabel('Range (m)')
+    plt.ylabel('Height (m)')
+    plt.savefig('ASS2Fig1')
+    plt.show()
+
+    #for part 2: calculate the at bat/home run ratio for the distributions specified in the assignment
     print(ABvsHRRats(100, 15, 45, 10, 3000, 400))
-    y,x = optimal_fence_height()
-    plt.plot(x,y)
+
+    #for part 3: use the uptimal fence height function to return an array of fence heights and their corresponding AB/HR ratio, as well as a curve of best fit for said set of points
+    x,y,curve = optimal_fence_height()
+
+    #for part 3: plot the AB/HR ratio vs fence height array, and the 2nd degree curve of best fit so that an element
+    plt.scatter(x, y)
+    plt.plot(x, curve, label = 'curve fit')
+    plt.xlabel('Fence Height (m)')
+    plt.ylabel('At Bats per Home Run')
+    #plot a horizontal line to determine the fence height corresponding to an AB/HR ratio of 10
+    plt.axhline(10, color='r')
+    plt.savefig('ASS2Fig2')
     plt.show()
 
 main()

@@ -21,11 +21,8 @@ def FTCS_solva(nspace, ntime, tau_rel, args):
     # * Set up loop and plot variables.
     xplot = np.arange(N) * h - L / 2.  # Record the x scale for plots
     tplot = np.arange(ntime) * tau
-    ntime = ntime  # Maximum number of iterations
-
 
     # * Loop over the desired number of time steps.
-    print(tt[1][0:9])
     for istep in range(0, ntime - 1):  ## MAIN LOOP ##
 
         # * Compute new temperature using FTCS scheme.
@@ -34,10 +31,16 @@ def FTCS_solva(nspace, ntime, tau_rel, args):
                          coeff * (tt[istep][2:N] + tt[istep][0:(N - 2)] - 2 * tt[istep][1:(N - 1)]))
 
     return tt, xplot, tplot
-plot, xvals, tvals = FTCS_solva(10, 3000, 0.001, [1,1])
+plot, xvals, tvals = FTCS_solva(61, 300, 0.72, [1,1])
 
-plt.contour(plot)
+plt.contour(xvals, tvals, plot, range(1,11))
 plt.show()
 fig = plt.figure()
 ax = fig.add_subplot(projection = '3d')
-ax.plot_surface(xvals, tvals, plot, rstride=2, cstride=2, cmap=cm.gray)
+plot = plot[5:]
+tvals = tvals[5:]
+
+
+x,y = np.meshgrid(xvals, tvals)
+ax.plot_surface(x,y,plot, rstride=2, cstride=2, cmap=cm.gray)
+plt.show()

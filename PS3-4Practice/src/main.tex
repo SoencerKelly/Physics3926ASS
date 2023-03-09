@@ -1,0 +1,90 @@
+%! Author = SpencerKelly
+%! Date = 2023-03-06
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{wasysym}
+
+% Document
+\begin{document}
+    \textbf{Practice Problems from assignment 3}\\
+    \textbf{4.6:}
+    a) $\frac{1}{\sqrt{n}}$; We will pick our $N_0 \in \mathbb{N}$ st. $\forall n \ge N_0,$
+    (and letting $\epsilon$ be some arbitrary positive number),
+    $\sqrt{n} > \frac{1}{\epsilon} \Rightarrow \frac{1}{\sqrt{n}} < \epsilon
+    \Rightarrow |\frac{1}{\sqrt{n}} -0 | < \epsilon$.
+    So, we can see that the sequence converges to 0 for the specified $N_0$\\\\
+    b)$\frac{2n + 1}{n+1}$; We will start by simplifying our expression in terms of a
+    single n so that we can pick an n st. when we write out the proof it agrees with our intuition that
+    this should converge to 2.
+    \[|\frac{2n + 1}{n+1} - 2| = |\frac{2n+1 -2(n+1)}{n+1}|=|\frac{-1}{n+1}|<\epsilon\]
+    From this it is not hard to see we should select an $n$ st.
+    \[n > \frac{1}{\epsilon} - 1\]
+    So, letting $\epsilon$ be some arbitrary positive number, we will choose an $N_0 \in \mathbb{N}$ st. $\forall n > N_0, n > \frac{1}{\epsilon} - 1$
+    Then, $n+1 > \frac{1}{\epsilon} \Rightarrow \frac{1}{n+1} < \epsilon \Rightarrow |\frac{-1}{n+1}|<\epsilon \Rightarrow |\frac{2n+ 1 - 2n -2}{n+1}| < \epsilon \Rightarrow |\frac{2n+1}{n+1} - 2| < \epsilon$
+    \\\\
+    \textbf{4.8:}  By the theorem proved in the first lesson on sequences, we know that a convergent series is bounded. So it is safe to say that any convergent sequence has both a supremum and an infimum.
+    Let $x = \text{sup}((a_n)^\infty_{n=1})$, and let $y = \text{inf}((a_n)^\infty_{n=1})$.
+    If $(a_n)^\infty_{n=1}$ is truly convergent, then ($x \lor y \in (a_n)^\infty_{n=1} \Leftrightarrow$
+    the sequence contains a smallest or largest term).\\
+    Let's assume $\neg(x \lor y \in (a_n)^\infty_{n=1})$ This implies that there is a subsequence of our sequence that continually approaches the infimum,
+    and another that continually approaches the supremum. But this just implies
+    $(a_n)^\infty_{n=1} < x \land (a_n)^\infty_{n=1} > y, \forall n \in \mathbb{N}$
+    \\Since we know that the series converges to a single value, if it approaches the infimum and supremum,
+    then the infimum must be the supremum; $y=x$,
+    and, by definition of infimum and supremum
+    this implies that the sequence must be st. $\forall a_n \in (a_n)^\infty_{n=1}, y = a_n = x$. Which contradicts our assumption $\blacksquare$
+    \\\\
+    \textbf{4.9:}\\
+    Example st. $a_n - b_n \rightarrow 0$ but $\frac{a_n}{b_n}$ does not tend to 1:\\
+    consider: $(a_n)^\infty_{n=1}$ := $\{a_n = \frac{-1}{n}^n\}$ and $(b_n)^\infty_{n=1}$ := $\{b_n = \frac{1}{n}\}$.
+    Or really any sequence in which they both approach 0 but one's values oscillate about 0.
+    Or where both oscillate about but are out of phase by some non integer multiple of $2\pi$
+    i.e. $\frac{\pi}{2}$, where $(a_n)^\infty_{n=1}$ := $\{a_n = (sin(\frac{n\pi}{2} + \frac{\pi}{4}))^{-n}\}$
+    and $(b_n)^\infty_{n=1}$ := $\{b_n = (sin(\frac{n\pi}{2} - \frac{\pi}{4}))^{-n}\}$\\
+    Also if $(a_n)^\infty_{n=1}$ is just 0 for every term and $(b_n)^\infty_{n=1}$ converges to 0 works as well.\\
+    \\
+    Example st. $\frac{a_n}{b_n}$ tends to 1 but $\neg(a_n - b_n \rightarrow 0)$:\\
+    Consider: $(a_n)^\infty_{n=1}$ := $\{a_n = n+1\}$ and $(b_n)^\infty_{n=1}$ := $\{b_n = n\}$.
+    \\\\
+
+    \textbf{Problem 4.10:}\\
+    If $(a_n)$ is convergent, then that means that for all but some finite $n \in \mathbb{N}, \\
+    |a_n - L| < \epsilon \Rightarrow L - \epsilon\ < |an| < L + \epsilon \Rightarrow L - \epsilon\ < ||an|| < L + \epsilon \Rightarrow
+    ||an| - L| < \epsilon$\\ So, the absolute value of the sequence converges to $L$ as well $\blacksquare$\\\\
+    In general, this logic does not work in reverse. Consider the sequence
+    $(a_n)^\infty_{n=1}$ := $\{a_n = (\frac{1}{n} +3)(1)^{-n} \}$ The limit does not converge to anything, however its abs. value converges to 3.
+    \\ In one specific case it does work: if $L = 0$, proved in class
+    \\\\
+    \textbf{Problem 4.12:}\\
+    If $(a_n) \rightarrow a > 0$, then for all but some finite $n \in \mathbb{N}, \\
+    |a_n - a| < \epsilon \Rightarrow a - \epsilon\ < |a_n| < a + \epsilon \rightarrow \sqrt{a - \epsilon} < \sqrt{|a_n|} < \sqrt{a + \epsilon}$
+    \\ (not sure if this is valid??)\\
+    Since we left $\epsilon$ arbitrary we can say that $\sqrt{a \pm \epsilon} = \sqrt{a} \pm \epsilon_2$\\
+    Where $\epsilon_2$ is some new epsilon. From this,
+    \[\sqrt{a - \epsilon} < \sqrt{|a_n|} < \sqrt{a + \epsilon} \Rightarrow \sqrt{a} - \epsilon_2 < \sqrt{|a_n|} < \sqrt{a} + \epsilon_2 \Rightarrow |\sqrt{a_n} - \sqrt{a}| < \epsilon_2\]\\
+    \textbf{This whole above method is not valid because you can't use arbitrary epsilon to prove convergence to a specific value!!!!}
+    \\
+    This part is valid:\\
+    If $(a_n) \rightarrow a > 0$, then for all but some finite $n \in \mathbb{N}$,
+    \[|a_n - a| < \epsilon\sqrt{a} \Rightarrow |\sqrt{a_n} - \sqrt{a}| = \frac{|a_n + a|}{\sqrt{a_n} + \sqrt{a}}
+    < \frac{|a_n + a|}{\sqrt{a}} < \frac{\epsilon\sqrt{a}}{\sqrt{a}} = \epsilon\]
+    $\blacksquare$\\
+    \\
+    \textbf{Problem 4.13:}\\
+    An example of a sequence that does not converge but who's mean does is simply the sequence
+    $(a_n)^\infty_{n=1}$ := $\{a_n = n\}$
+
+
+
+
+
+
+
+
+\end{document}

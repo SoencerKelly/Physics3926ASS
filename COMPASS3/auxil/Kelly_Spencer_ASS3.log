@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.23)  24 MAR 2023 20:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.2.23)  24 MAR 2023 20:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -957,44 +957,47 @@ LaTeX Info: Redefining \addtolength on input line 81.
 )
 \c@@todonotes@numberoftodonotes=\count298
 )
-Kelly_Spencer_ASS3.tex:16: Undefined control sequence.
-l.16 \shorttitle
-                {Project Title LastName}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2022/06/24 version 5.1.1 text color boxes
+(C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks38
+\verbatim@line=\toks39
+\verbatim@in@stream=\read4
+)
+(C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
 
-
-Kelly_Spencer_ASS3.tex:16: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 \shorttitle{P
-                  roject Title LastName}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Kelly_Spencer_ASS3.tex:18: Undefined control sequence.
-l.18 \affiliation
-                 {WhoYoureWith}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
+(C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count299
+)
+\tcb@titlebox=\box64
+\tcb@upperbox=\box65
+\tcb@lowerbox=\box66
+\tcb@phantombox=\box67
+\c@tcbbreakpart=\count300
+\c@tcblayer=\count301
+\c@tcolorbox@number=\count302
+\tcb@temp=\box68
+\tcb@temp=\box69
+\tcb@temp=\box70
+\tcb@temp=\box71
+) (C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/tabto-ltx\tabto.sty
+Package: tabto 2018/12/28  v 1.4  Another tabbing mechanism
+\CurrentLineWidth=\dimen261
+\TabPrevPos=\dimen262
+)
 (C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count299
-\l__pdf_internal_box=\box64
-)
-No file Kelly_Spencer_ASS3.aux.
+\l__color_backend_stack_int=\count303
+\l__pdf_internal_box=\box72
+) (C:/Users\1spen\COMPSIMS\COMPASS3\auxil\Kelly_Spencer_ASS3.aux)
 \openout1 = `Kelly_Spencer_ASS3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -1015,17 +1018,17 @@ LaTeX Font Info:    ... okay on input line 21.
 (C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count300
-\scratchdimen=\dimen261
-\scratchbox=\box65
-\nofMPsegments=\count301
-\nofMParguments=\count302
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count303
-\MPscratchDim=\dimen262
-\MPnumerator=\count304
-\makeMPintoPDFobject=\count305
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count304
+\scratchdimen=\dimen263
+\scratchbox=\box73
+\nofMPsegments=\count305
+\nofMParguments=\count306
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count307
+\MPscratchDim=\dimen264
+\MPnumerator=\count308
+\makeMPintoPDFobject=\count309
+\everyMPtoPDFconversion=\toks41
 )
 (C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1036,31 +1039,37 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Users\1spen\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) [1
-
-{C:/Users/1spen/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 23--26
+))
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
 
-[2] (C:/Users\1spen\COMPSIMS\COMPASS3\auxil\Kelly_Spencer_ASS3.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
+
+ []
+
+[1
+
+{C:/Users/1spen/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(C:/Users\1spen\COMPSIMS\COMPASS3\auxil\Kelly_Spencer_ASS3.aux) ) 
 Here is how much of TeX's memory you used:
- 14193 strings out of 476374
- 293135 string characters out of 5788854
- 1851340 words of memory out of 5000000
- 34327 multiletter control sequences out of 15000+600000
- 516604 words of font info for 47 fonts, out of 8000000 for 9000
+ 16514 strings out of 476374
+ 349173 string characters out of 5788854
+ 1855340 words of memory out of 5000000
+ 36624 multiletter control sequences out of 15000+600000
+ 517444 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,94p,430b,195s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/
-1spen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-C:/Users/1spen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-10.pfb><C:/Users/1spen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr12.pfb>
+ 99i,6n,94p,1097b,195s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/1spe
+n/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/U
+sers/1spen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/1spen/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr12.pfb>
 Output written on C:/Users\1spen\COMPSIMS\COMPASS3\out\Kelly_Spencer_ASS3.pdf (
-2 pages, 43057 bytes).
+1 page, 49889 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 24 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
